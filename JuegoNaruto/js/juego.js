@@ -14,43 +14,43 @@ const gameOver = document.querySelector(".gameOver")
 //Cargar imagenes
 
 const heart = new Image()
-heart.src = "../assets/heart.png"
+heart.src = "./assets/heart.png"
 console.log(heart)
 
 const alien = new Image()
-alien.src="../assets/itachi6.png"
+alien.src="./assets/itachi6.png"
 
 const alien1 = new Image()
-alien1.src="../assets/pain3.png"  
+alien1.src="./assets/pain3.png"  
 
 const alien2 = new Image()
-alien2.src="../assets/sasori.png" 
+alien2.src="./assets/sasori.png" 
 
 const alien3 = new Image()
-alien3.src="../assets/deidara.png"
+alien3.src="./assets/deidara.png"
 
 const bullet = new Image()
-bullet.src = "../assets/naruto7.png"
+bullet.src = "./assets/naruto7.png"
 
 const naveD = new Image()
-naveD.src = "../assets/naruto1.png"
+naveD.src = "./assets/naruto1.png"
 
 const naveI = new Image()
-naveI.src= "../assets/naruto5.png"
+naveI.src= "./assets/naruto5.png"
 
 
 //Sonidos
 //play()
-const shoot = new Audio("../sounds/sonido-Rasengan.mp3")
-const die = new Audio("../sounds/sonido-Perdiste.mp3")
-const pelea = new Audio("../sounds/sonido-pelea.mp3")
+const shoot = new Audio("./sounds/sonido-Rasengan.mp3")
+const die = new Audio("./sounds/sonido-Perdiste.mp3")
+const pelea = new Audio("./sounds/sonido-pelea.mp3")
 
 
 //ARREGLO aliens
 const tiposAliens = [alien, alien1, alien2, alien3]
 
 
-//Balas
+//ARREGLO Balas
 const balas = []
 
 //Alien Arreglo
@@ -70,9 +70,7 @@ class Nave {
         this.img = naveD
     }
 
-
-    
-    //Metodos
+    //Metodos de Personaje
  
 
     //drawImage
@@ -93,7 +91,7 @@ class Nave {
 
     adelante(){
 
-        if(this.x < 570){
+        if(this.x < 515){
 
         this.x += this.velocidad
 
@@ -104,20 +102,20 @@ class Nave {
 
     atras(){
 
-       if(this.x > 0){
+       if (this.x > 0){
 
-        this.x -= this.velocidad
-       }
-       this.img = naveI
+            this.x -= this.velocidad
+        }
+                 this.img = naveI
     }
 
     /* Valor - en Y */
 
     arriba(){
 
-        if(this.y > 40) {
+        if (this.y > 0) {
         
-        this.y -= this.velocidad
+            this.y -= this.velocidad
 
         }
     }
@@ -126,7 +124,7 @@ class Nave {
 
     abajo(){
         
-        if(this.y < 270){
+        if(this.y < 215){
 
         this.y += this.velocidad
     }
@@ -136,7 +134,7 @@ class Nave {
 }
     //Disparar - clase
 
-class Bala {
+    class Bala {
     constructor(x, y){
         this.x = x; 
         this.y = y;
@@ -157,11 +155,10 @@ class Bala {
       
     }
 
-
     
-//Alien clase
+     //Alien clase
 
-class Alien{
+     class Alien{
     constructor(x, y, img){
         this.x = x;
         this.y = y;
@@ -214,7 +211,6 @@ function empezarJuego(){
 
         //verificar si sigue vivo
         if(nave.lifes === 0){
-            setGameOver()
         }
 
 
@@ -229,33 +225,11 @@ function empezarJuego(){
                 bala.dibujarse()
 
 
-                tiempo++
-                ctx.font = "25px Arial";
-                ctx.fillText(tiempo,10,30)
-
-
-                // Pintar Muertos
-                ctx.fillText(`${nave.kills} Muertos`, 290,30)           
                
-                //Pintar vidas
-                
-                    mostrarVidas()
-
-
                 aliens.forEach((alien, indexAlien) => {
                     console.log({balaX: bala.x, balaY: bala.y, alienX: alien.x, alienY: alien.y})
 
-                    if (
-                        alien.x <= bala.x + 10 && 
-                        bala.y >= alien.y && 
-                        bala.y <= alien.y + 50 && 
-                        bala.x <= alien.x
-
-
-                    ) {
-
-
-
+                    if (alien.x <= bala.x + 60 && bala.y >= alien.y && bala.y <= alien.y + 55) {
                         aliens.splice(indexAlien, 1)
                         balas.splice(indexBala, 1)
                         nave.kills++
@@ -264,13 +238,21 @@ function empezarJuego(){
 
                 })
 
-
+               
 
                 
             })
+                                    tiempo++
+                                    ctx.font = "25px Arial"
+                                    ctx.fillText(tiempo,10,30)
+
+                // Pintar Muertos
+                ctx.fillText(`${nave.kills} Muertos`, 290,30) 
 
 
-        
+                             //Pintar vidas
+                
+                             mostrarVidas()
 
  //Dibujar Aliens
     aliens.forEach((alien, indexAlien)=>{
@@ -295,14 +277,12 @@ function empezarJuego(){
     },100)
 
 
-
-
-}
+    }
 
 
 //Seleccionamos el boton y empieza el juego
 let btn = document.getElementById("jugar")
-    btn.addEventListener("click",() => {
+    btn.addEventListener("click",() => { 
         empezarJuego()
         crearAliens()
         btn.classList.add("none")

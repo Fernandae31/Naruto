@@ -33,8 +33,8 @@ canvas{
 }
 button{
     padding: 20px;
-    border-radius: 15px;
-    width: 100px;
+    border-radius: 10px;
+    width: 150px;
     background-color: transparent;
     color: white;
     border: 2px solid white;
@@ -43,7 +43,7 @@ button{
     
 }
 
-/* CONFIGURACION BOTONES POR SEPARADO*/
+/* CONFIGURACION BOTONES POR SEPARADO LE AGREGUE EL FONDO A C/U */
 
 #jugar{
     background-image: url(../assets/nube.gif);
