@@ -1,0 +1,92 @@
+/* CONFIGURACION PARA JUEGO HTML */ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Indie Flower', cursive;
+} 
+
+    /* CONFIGURACION DE BODY */
+body{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../assets/pelea.jpg);
+    background-image: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    /* CONFIGURACION DE CANVAS */ 
+canvas{
+    border: 5px solid white;
+    background-image: url(../assets/konoha.jpg);
+    background-size: cover;
+   
+}
+    /* CONFIGURACION DE BOTONES */
+
+.botones{
+    margin: 25px;
+
+}
+button{
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    font-size: 15px;
+   
+    
+}
+
+/* CONFIGURACION BOTONES POR SEPARADO LE AGREGUE EL FONDO A C/U */
+
+#jugar{
+    background-image: url(../assets/nube.gif);
+    background-size: cover;
+    background-position: 1%
+}
+#boton1{
+    background-image: url(../assets/nube.gif);
+    background-size: cover;
+    background-position: 1%
+}
+#boton2{
+    background-image: url(../assets/nube.gif);
+    background-size: cover;
+    background-position: 1%
+}
+
+button:hover{
+    animation: flash;
+    animation-duration: 2s;
+  
+}
+
+.none{
+
+    display: none !important;  /*palabra reservada*/
+
+}
+.gameOver{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/perdiste.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.gameOver button{
+    background-image: url("../assets/nube.gif");
+    background-size: cover;
+    background-position: justify;
+    padding: 25px;
+    margin: 15px;
+}
