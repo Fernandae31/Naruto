@@ -242,6 +242,7 @@ function empezarJuego(){
 
                 
             })
+
                                     tiempo++
                                     ctx.font = "25px Arial"
                                     ctx.fillText(tiempo,10,30)

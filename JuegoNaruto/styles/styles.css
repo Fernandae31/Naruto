@@ -4,13 +4,13 @@
     box-sizing: border-box;
     font-family: 'Indie Flower', cursive;
 }
-
 body{
     width: 100vw;
     height: 100vh;
     background-image: url("../assets/fondoMenu.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+
     
 
 }
@@ -22,9 +22,7 @@ body{
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
-    
-    
-    
+
 }
 button{
 
@@ -32,15 +30,31 @@ button{
     border-radius: 15px;
     background-color: transparent;
     width: 250px;
-    color: antiquewhite;
-    font-size: 40px;
+    color: red;
+    font-size: 25px;
     text-align: center;
     border: 5px solid rgb(164, 29, 29);
     margin: 55px;
 }
 button:hover{
-    background-color: rgba(224, 47, 31, 0.8);
+    background-color: transparent;
     animation: flash;
     animation-duration: 1s;
   
+}
+#boton1{
+    background-image: url(../assets/nube.gif);
+    background-size: cover;
+    background-position: 10%
+    
+}
+#boton2{
+    background-image: url(../assets/nube.gif);
+    background-size: cover;
+    background-position: 15%
+}
+#boton3{
+    background-image: url(../assets/nube.gif);
+    background-size: cover;
+    background-position: 1%
 }
