@@ -17,6 +17,11 @@ const heart = new Image()
 heart.src = "./assets/heart.png"
 console.log(heart)
 
+//prueba de avatar
+const naruto = new Image()
+naruto.src = "./assets/narutopre.png"
+console.log(naruto)
+
 const alien = new Image()
 alien.src="./assets/itachi6.png"
 
@@ -113,7 +118,7 @@ class Nave {
 
     arriba(){
 
-        if (this.y > 0) {
+        if (this.y > 20) {
         
             this.y -= this.velocidad
 
@@ -173,6 +178,8 @@ class Nave {
 ctx.fillStyle = "white"
 
 
+
+
     //Instancia de personaje
 const nave = new Nave(10,145, 90, 85)// Instancia nave //clase Nave //tamano naruto
     console.log(nave)
@@ -202,7 +209,7 @@ document.addEventListener("keydown", (evento) => {
 
 let tiempo = 0
 
-//Empezar Juegp
+//Empezar Juegpo
 function empezarJuego(){
     setInterval(()=>{
         ctx.clearRect(0,0,600,300)
@@ -250,10 +257,12 @@ function empezarJuego(){
                 // Pintar Muertos
                 ctx.fillText(`${nave.kills} Muertos`, 290,30) 
 
-
-                             //Pintar vidas
+            //Pintar avatar
+            mostarAvatar()
+        
+                //Pintar vidas
                 
-                             mostrarVidas()
+                mostrarVidas()
 
  //Dibujar Aliens
     aliens.forEach((alien, indexAlien)=>{
@@ -264,14 +273,13 @@ function empezarJuego(){
     }
 
     //Colision nave contra alien
- if(
-        alien.x <= nave.x + 30
-         && nave.y +30 >= alien.y 
-         && nave.x <= alien.x 
-         && nave.y <= alien.y +50
-    ){
-        nave.lifes--
-        aliens.splice(indexAlien, 1)
+ if(alien.x <= nave.x + 85
+    && nave.y +85 >= alien.y 
+    && nave.x <= alien.x 
+    && nave.y <= alien.y +55) 
+    {
+     nave.lifes--
+    aliens.splice(indexAlien, 1)
     }
 })
    
@@ -300,16 +308,21 @@ let btn = document.getElementById("jugar")
     function crearAliens(){
 
     setInterval(()=>{
-        const posicionY = Math.floor((Math.random() *210)+40)
+        const posicionY = Math.floor((Math.random() *220)+30)
         const posicionAleatoria = Math.floor(Math.random ()* tiposAliens.length)
         const alienAleatorio = tiposAliens[posicionAleatoria]
 
         const a = new Alien(600, posicionY, alienAleatorio)
         aliens.push(a)
-    }, 3005)
+    }, 2005)
 }
 
 //Mostrar vidas
+
+    function mostarAvatar(){
+        ctx.drawImage(naruto,420,5,30,30)
+    }
+
 
 function mostrarVidas(){
 if (nave.lifes === 3) {
