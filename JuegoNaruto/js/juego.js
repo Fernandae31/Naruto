@@ -218,6 +218,7 @@ function empezarJuego(){
 
         //verificar si sigue vivo
         if(nave.lifes === 0){
+            setGameOver()
         }
 
 
