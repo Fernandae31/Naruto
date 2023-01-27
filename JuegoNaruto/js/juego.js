@@ -68,6 +68,13 @@ naveD.src = "./assets/naruto1.png"
 const naveI = new Image()
 naveI.src= "./assets/naruto5.png"
 
+const naveAb = new Image()
+naveAb.src= "./assets/abajonaruto.png"
+
+const naveArr = new Image()
+naveArr.src= "./assets/arriba.png"
+
+
 // Insignia de Cuervo
 
 const coin0 = new Image()
@@ -178,12 +185,14 @@ const monedas= []
     arriba(){
     if (this.y > 20) {
     this.y -= this.velocidad}
+    this.img = naveArr
     }
 
 
     abajo(){
     if(this.y < 215){
-    this.y += this.velocidad}    
+    this.y += this.velocidad}  
+    this.img = naveAb  
     }
 
 }
