@@ -1,4 +1,5 @@
 
+
 //Seleccion de Canvas
 const canvas = document.getElementById("juego")
 console.log(canvas)
@@ -14,6 +15,7 @@ const gameOver = document.querySelector(".gameOver")
 
 //Seleccion Win
 const winGame= document.querySelector(".winGame")
+
 
 //Cargar imagenes
 
@@ -94,6 +96,11 @@ const shoot = new Audio("./sounds/sonido-Rasengan.mp3")
 const die = new Audio("./sounds/sonido-Perdiste.mp3")
 const pelea = new Audio("./sounds/sonido-pelea.mp3")
 const ganaste = new Audio("./sounds/sonido-ganaste.mp3")
+const musica = new Audio("./sounds/sonido-menu.mp3")
+
+function stopMusic(){
+    musica.pause();
+}
 
 
 //ARREGLO aliens
@@ -250,22 +257,32 @@ document.addEventListener("keydown", (evento) => {
 
 let tiempo = 0
 
-//Empezar Juegpo
+//Empezar Juego
 function empezarJuego(){
-    setInterval(()=>{
+      /*let intervalo = */ setInterval(()=>{
         ctx.clearRect(0,0,600,300)
+        if(nave.lifes === 0){
+            musica.pause();
+        } else {
+            musica.play();
+        }
+    
         //Dibujar nave
         nave.dibujarse()
 
         //verificar si sigue vivo
         if(nave.lifes === 0){
             setGameOver()
+           
+         
         }
 
 
         //Ganar 
-        if(nave.coins === 1){
-            setwinGame()
+       
+        if(nave.coins === 2){
+            stopMusic();
+            setwinGame();
         }
 
 
@@ -295,7 +312,7 @@ function empezarJuego(){
                     }
 
 
-                })
+                },1000/60) //INTERVALO DE JUEGO
 
 
 
@@ -328,6 +345,7 @@ function empezarJuego(){
 tiempo++
 ctx.font = "bold 25px Arial, sans-serif"
 ctx.fillStyle = "black"
+
 
 ctx.fillText(tiempo,10,30)
 
@@ -444,18 +462,29 @@ if (nave.lifes === 3) {
 }
 //Game Over
 function setGameOver(){
+
     //Agregar clase none
     canvas.classList.add("none")
     menu.classList.add("none")
     gameOver.classList.remove("none")
     die.play()
+    clearInterval(intervalo)
+   
+   
 
 
-//Win     
+
+
+   
 }
+//Win
 function setwinGame(){
+   
     canvas.classList.add("none")
     menu.classList.add("none")
     winGame.classList.remove("none")
     ganaste.play()
+    clearInterval(intervalo)
 }
+
+//////////////////////////

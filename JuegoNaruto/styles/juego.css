@@ -1,4 +1,6 @@
 /* CONFIGURACION PARA JUEGO HTML */ 
+
+
 *{
     margin: 0;
     padding: 0;
@@ -52,7 +54,7 @@ button{
     background-size: cover;
     background-position: 1%
 }
-#boton1{
+.boton1{
     background-image: url(../assets/nube.gif);
     background-size: cover;
     background-position: 1%
@@ -113,4 +115,8 @@ button:hover{
     background-position: justify;
     padding: 25px;
     margin: 15px;
+}
+.musicadejuego{
+
+
 }

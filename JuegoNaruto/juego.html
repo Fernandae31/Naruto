@@ -17,27 +17,28 @@
     <link rel = "stylesheet" href ="styles/juego.css">
     </head>
     <body>
-    
+        
+        </div>
         <div class="botones">
         <button id= "jugar"  class="animate__animated animate__headShake"> Jugar</button>
-        <button id="boton1" class="animate__animated animate__headShake"> Pausa</button>
-        <button id="boton2" class="animate__animated animate__headShake"> Inicio</button>
+        <button class="boton1" id="pausaToggle" class="animate__animated animate__headShake"> Pausa</button>
+        <button id="boton2" class="animate__animated animate__headShake"onclick="location.href='index.html'"> Inicio</button>
         </div>
 
         <!--CANVAS-->
-        <canvas id="juego" width="600" height="300"></canvas>
-        <div class="gameOver none">
-            <a href="/JuegoNaruto/index.html">
+      <canvas id="juego" width="600" height="300"></canvas>
+        <div  class="gameOver none">
+            <a href="/index.html">
                 <button>Perdiste</button>
             </a></div>
     
             <div class="winGame none">
-                <a href="/JuegoNaruto/index.html">
+                <a href="/index.html">
                     <button>Ganaste</button>
                  </a></div>
 
         <script src="js/juego.js"></script>
         
     </body>
-    <embed name="menu" src="sounds/sonido-menu.mp3" loop="false" hidden="true" autostart="true">
+    
 </html>
