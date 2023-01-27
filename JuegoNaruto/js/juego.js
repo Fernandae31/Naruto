@@ -7,6 +7,20 @@ console.log(canvas)
 const ctx = canvas.getContext("2d")
 console.log(ctx)
 
+//Pausa
+
+let pausaBtn = document.getElementById("pausaToggle")
+pausaBtn.addEventListener("click", () =>{
+    if(pausaBtn.innerText === "Pausa" ){
+        pausaBtn.innerText = "Play"
+        cancelAnimationFrame(requestReference)
+    }else{
+        pausaBtn.innerText = "Pausa"
+    }
+})
+let requestReference
+
+
 //Seleccion menu
 const menu = document.querySelector(".botones")
 
@@ -248,7 +262,7 @@ document.addEventListener("keydown", (evento) => {
             nave.abajo()
                 break;
                 case " ":
-                    if(balas.length < 3){
+                    if(balas.length < 5){
             nave.disparar()
                     }
             break;
@@ -280,7 +294,7 @@ function empezarJuego(){
 
         //Ganar 
        
-        if(nave.coins === 2){
+        if(nave.coins === 3){
             stopMusic();
             setwinGame();
         }
@@ -312,7 +326,7 @@ function empezarJuego(){
                     }
 
 
-                },1000/60) //INTERVALO DE JUEGO
+                }) //INTERVALO DE JUEGO
 
 
 
@@ -345,6 +359,7 @@ function empezarJuego(){
 tiempo++
 ctx.font = "bold 25px Arial, sans-serif"
 ctx.fillStyle = "black"
+
 
 
 ctx.fillText(tiempo,10,30)
@@ -414,7 +429,7 @@ let btn = document.getElementById("jugar")
 
         const a = new Alien(600, posicionY, alienAleatorio)
         aliens.push(a)
-    }, 2005)
+    }, 3005)
 }
 
 
