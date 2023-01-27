@@ -20,9 +20,11 @@ body{
 
     /* CONFIGURACION DE CANVAS */ 
 canvas{
-    border: 5px solid white;
+    border: 5px solid rgb(10, 8, 8);
     background-image: url(../assets/konoha.jpg);
     background-size: cover;
+    
+    
    
 }
     /* CONFIGURACION DE BOTONES */
@@ -36,9 +38,9 @@ button{
     border-radius: 10px;
     width: 150px;
     background-color: transparent;
-    color: white;
-    border: 2px solid white;
-    font-size: 15px;
+    color: rgb(140, 12, 12);
+    border: 4px solid rgb(6, 5, 5);
+    font-size: 25px;
    
     
 }
@@ -85,6 +87,28 @@ button:hover{
 
 .gameOver button{
     background-image: url("../assets/nube.gif");
+    background-size: cover;
+    background-position: justify;
+    padding: 25px;
+    margin: 15px;
+}
+
+
+
+/* Seccion de winGame */
+.winGame{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/ganaste.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.winGame button{
+    background-image: url("../assets/sonriendo.jpg");
     background-size: cover;
     background-position: justify;
     padding: 25px;
